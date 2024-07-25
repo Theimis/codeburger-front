@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+/* eslint-disable import-helpers/order-imports */
+/* eslint-disable react/no-deprecated */
+/* eslint-disable prettier/prettier */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ToastContainer } from 'react-toastify';
+import Login from './Containers/Login'
+import Register from './Containers/Register'
+import GlobalStyles from './styles/globalStyles'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.render(
+  <>
+    <Login />
+   <Register/>
+    <ToastContainer/>
+    <GlobalStyles />
+
+  </>,
+
+
+  document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
