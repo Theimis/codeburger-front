@@ -1,21 +1,21 @@
 /* eslint-disable prettier/prettier */
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 
-import PropTypes from 'prop-types'
-import React from "react"
-import { Route, Redirect } from "react-router-dom"
-
-
-function PrivateRoute({ component, ...rest }) {
-    const user = localStorage.getItem('codeburger:userData')
+function PrivateRoute({ element: Element, ...rest }) {
+    const user = localStorage.getItem('codeburger:userData');
+    const location = useLocation();
 
     if (!user) {
-        return <Redirect to="/login" />
+        return <Navigate to="/login" state={{ from: location }} />;
     }
-    return <Route {...rest} component={component}/>
+
+    return Element;
 }
 
-export default PrivateRoute
+export default PrivateRoute;
 
 PrivateRoute.propTypes = {
-    component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
-}
+    element: PropTypes.element.isRequired
+};
